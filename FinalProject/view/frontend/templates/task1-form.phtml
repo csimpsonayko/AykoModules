@@ -1,0 +1,39 @@
+<style>
+    .task-1-form {
+        background:#e1e1e1;
+        padding:40px;
+    }
+    .fieldset > .field:not(.choice) > .label {
+        width:80px;
+    }
+</style>
+<div class="task-1-form">
+    <form class="form contact"
+          action="<?php echo $this->getUrl('extension/index/save', ['_secure' => true]);?>"
+          id="custom-form"
+          method="post"
+          data-hasrequired="<?php  echo __('* Required Fields') ?>"
+          data-mage-init='{"validation":{}}'>
+
+        <input id="cproduct_id" name="cproduct_id" type="hidden" value="0">
+        <fieldset class="fieldset">
+            <div class="field name required">
+                <label class="label" for="name"><span><?php  echo __('Name') ?></span></label>
+                <div class="control">
+                    <input class="input-text" data-validate="{required:true}" id="name" name="name" title="<?php echo __('Name') ?>" type="text">
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email"><span><?php  echo __('Email') ?></span></label>
+                <div class="control">
+                    <input class="input-text" data-validate="{required:true, 'validate-email':true}" id="email" name="email" title="<?php echo __('Email') ?>" type="email">
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <input id="hideit" name="hideit" type="hidden" value=""> <button class="action submit primary" id="custom_btn" title="<?php echo __('Submit') ?>" type="submit"><span><?php  echo __('Submit') ?></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

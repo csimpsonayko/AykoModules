@@ -1,0 +1,16 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Catalog\Block\Product\View $block */
+/** @var \Magento\Catalog\Block\Product\ProductList\Upsell $list */
+
+
+?>
+
+<div class="parent-block-wrapper" style="background:black;padding:20px;">
+
+    <div class="parent-block" style="background:green;padding:10px;">
+        <h2><?= __('Parent Block'); ?></h2>
+        <?= $block->getChildBlock('ayko.child.block')->toHtml() ?>
+    </div>
+</div>
+

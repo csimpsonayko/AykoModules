@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <!-- pulls through test header -->
+            <block class="Ayko\TrainingModule1\Block\Index" name="ayko_index_index" template="Ayko_TrainingModule1::index.phtml" />
+            <!-- pulls through block in a block -->
+
+            <block class="Magento\Framework\View\Element\Template" name="ayko.parent.block" template="Ayko_TrainingModule1::parent-block.phtml">
+                <block class="Magento\Framework\View\Element\Template" name="ayko.child.block" template="Ayko_TrainingModule1::child-block.phtml"/>
+            </block>
+
+        </referenceContainer>
+    </body>
+</page>
