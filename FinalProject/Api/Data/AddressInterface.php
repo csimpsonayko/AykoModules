@@ -43,5 +43,5 @@ class AddressInterface extends Template {
         $extAttributes = $this->_addressInformation->getExtensionAttributes();
         return $extAttributes->getCustomField(); //get custom attribute data.
     }
-    
+
 }
