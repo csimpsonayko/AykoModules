@@ -8,8 +8,12 @@ define([
         /** @inheritdoc */
         initialize: function () {
             this._super();
-            console.log('----- XDEBUG FUNCTION HERE -----');
-            console.log(customerData.get()());
+            console.log('-- : the test script is running : --');
+
+
+
+
+
         }
     });
 });

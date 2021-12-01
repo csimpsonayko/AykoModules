@@ -1,0 +1,112 @@
+<div class="title-wrapper">
+    <h1 class="title">------- File Loaded ------- </h1>
+</div>
+
+<p class="custom-block-text"><?php echo $block->escapeHtml($block->getWelcomeText()) ?></p>
+<!-- * For security reasons, skip the text output via the escapeHtml method. This will save the site from HTML injections. -->
+
+<?php
+
+class Jacket {
+    //Properties
+    public $brand;
+    public $color;
+    public $size;
+
+    protected $price;
+
+    private $stock;
+
+    const PURCHASE_MESSAGE = "Thank you for Purchasing!";
+
+
+    function __construct($brand , $color , $size) {
+        $this->brand = $brand;
+        $this->color = $color;
+        $this->size = $size;
+    }
+    //Methods
+    /**
+     * @return mixed
+     */
+    function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
+
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    function setSize($size)
+    {
+        $this->size = $size;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function purchased() {
+        echo self::PURCHASE_MESSAGE;
+    }
+
+    protected function intro(){
+        echo "The color of the chosen jacket is {$this->color} and the size = {$this->size}";
+    }
+}
+
+$BlackFridayDeal = new Jacket('berghaus', 'Black', 'L');
+
+$SizeChoice = $BlackFridayDeal->getSize();
+
+
+?>
+
+<p><?= __('Todays special Brand deal is the  ' . $BlackFridayDeal->getBrand() . ' Jacket'); ?></p>
+<p><?= __('Color Chosen ' . $BlackFridayDeal->getColor()); ?></p>
+<p><?= __('Size Chosen : ' . $BlackFridayDeal->getSize()); ?></p>
+
+<?php
+
+// <<< ***** XDEBUG ***** >>> Add a Breakpoint into the Logic at this point!
+// <<< Start The Listener >>>
+
+if($SizeChoice === 'L'){
+    echo 'Size Choice Matches criteria - ( ' . $SizeChoice . ' ) Initiate BreakPoint Here';
+} else {
+   echo 'No Jacket Selection Made';
+}
+
+?>
+
+<p style="text-decoration: underline;margin:20px 0px;">Extends the Base jacket Class into Fleece </p>
+
+<?php
+
+class Fleece extends Jacket {
+    public function orderCheck(){
+       echo 'STATUS : *** order check ***';
+       // this is a protected function thats inherited from extending the Jacket class and therefore the properties within
+       $this->intro();
+    }
+}
+
+$coat = new Fleece('Rab','Red','M');
+$coat->orderCheck();
+
+echo '<br />';
+echo '<br />';
+echo $BlackFridayDeal->purchased();

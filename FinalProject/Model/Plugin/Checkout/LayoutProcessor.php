@@ -21,7 +21,9 @@ class LayoutProcessor
             'label' => 'Custom Field',
             'provider' => 'checkoutProvider',
             'visible' => true,
-            'validation' => [],
+            'validation' => [
+                'required-entry' => true
+            ],
             'sortOrder' => 250,
             'id' => 'custom-field'
         ];
